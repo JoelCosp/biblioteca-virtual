@@ -17,14 +17,6 @@ class BookController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
@@ -57,26 +49,45 @@ class BookController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Book $book)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Book $book)
+    public function update(Request $request, $id)
     {
-        //
+        // Buscar el libro por ID
+        $book = Book::find($id);
+
+        // Si no se encuentra, devolver un error 404
+        if (!$book) {
+            return response()->json(['message' => 'Libro no encontrado'], 404);
+        }
+
+        // Validamos los datos recibidos
+        $validatedData = $request->validate([
+            'title' => 'sometimes|required|string|max:255',
+            'author' => 'sometimes|required|string|max:255',
+            'description' => 'sometimes|nullable|string',
+            'img' => 'sometimes|nullable|url', // Si es una URL
+        ]);
+
+        // Actualizar el libro con los datos validados
+        $book->update($validatedData);
+
+        // Retornar la respuesta JSON una vez actualizado el libro
+        return response()->json([
+            'message' => 'Libro actualizado con éxito',
+            'book' => $book
+        ]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Book $book)
+    public function destroy($id)
     {
-        //
+        $book = Book::find($id);
+        if($book)
+        {
+            $book->delete();
+        }
     }
 }
