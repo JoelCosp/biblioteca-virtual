@@ -1,1 +1,5 @@
-<p>book-list works!</p>
+<section class="card-list-container max-w-screen-xl mx-auto">
+    <div *ngFor="let book of books">
+        <app-book-card [book]="book"></app-book-card> <!-- Pasamos el BOOK al componente card -->
+    </div>
+</section>

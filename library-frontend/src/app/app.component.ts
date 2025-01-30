@@ -5,8 +5,9 @@ import { initFlowbite } from 'flowbite';
 // Componentes a importar
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { BookListComponent } from './books/book-list/book-list.component';
 
-const GLOBAL_MATERIALS = [RouterOutlet, NavbarComponent, FooterComponent];
+const GLOBAL_MATERIALS = [RouterOutlet, NavbarComponent, FooterComponent, BookListComponent];
 
 @Component({
   selector: 'app-root',
