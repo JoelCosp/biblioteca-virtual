@@ -43,9 +43,10 @@ class BookController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Book $book)
+    public function show($id)
     {
-        //
+        $book = Book::find($id);
+        return response()->json($book);
     }
 
     /**
