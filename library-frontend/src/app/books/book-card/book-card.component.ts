@@ -1,8 +1,9 @@
 import { Component, Input  } from '@angular/core';
 import { Book } from '../../models/book.model';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router'; // // Necesario para poder usar los ROUTER LINK en el HTML
 
-const GLOBAL_MATERIALS = [CommonModule];
+const GLOBAL_MATERIALS = [CommonModule, RouterLink];
 
 @Component({
   selector: 'app-book-card',

@@ -8,7 +8,7 @@ import { routes } from './app.routes';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }), 
-    provideRouter(routes),
+    provideRouter(routes), // IMPORTANTE para poder aplicar lo del router outlet
     provideHttpClient() // IMPORTANTE para recibir data de la API
   ]
 };

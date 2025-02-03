@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet } from '@angular/router'; // Necesario para poder manejar las rutas
 import { initFlowbite } from 'flowbite';
 
 // Componentes a importar
